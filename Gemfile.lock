@@ -117,10 +117,13 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+    nokogiri (1.13.10-x64-mingw-ucrt)
+      racc (~> 1.4)
     nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.5)
+    pg (1.4.5-x64-mingw-ucrt)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.2)
@@ -146,6 +149,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.4)
       loofah (~> 2.19, >= 2.19.1)
+    rails-i18n (7.0.6)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 8)
     railties (7.0.3.1)
       actionpack (= 7.0.3.1)
       activesupport (= 7.0.3.1)
@@ -159,6 +165,8 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -176,6 +184,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2022.7)
+      tzinfo (>= 1.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -189,6 +199,7 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
@@ -200,9 +211,12 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (= 7.0.3.1)
+  rails-i18n
+  russian
   sprockets-rails
   stimulus-rails
   turbo-rails
+  tzinfo-data
   web-console
 
 RUBY VERSION

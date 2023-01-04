@@ -5,26 +5,51 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <!-- favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' -->
   </head>
 
   <body>
-    <div class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <%= link_to "BBQ!", root_path, class: 'navbar-brand' %>
+    <div class="container">
+      <div class="navbar navbar-default navbar-static-top">
+        <%# Для вывода названия приложения используем хелпер I18n.t %>
+        <%= link_to t('app.name'), root_path, class: 'navbar-brand' %>
 
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <div>
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to 'Профиль', current_user %></li>
+              <li><%= link_to 'Выйти', destroy_user_session_path, data: { turbo_method: :delete } %></li>
+            <% else %>
+              <li><%= link_to 'Войти', new_user_session_path %></li>
+              <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>
     </div>
 
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <% flash.each do |name, message| %>
+            <p class="alert alert-<%= name %> fade-in"><%= message %></p>
+          <% end %>
+          <%= yield %>
+        </div>
+        <div class="col-lg-3">
+        </div>
+      </div>
+
+      <footer>
+        <%# Для вывода названия компании используем хелпер I18n.t %>
+        <p>&copy; <%= t 'app.company' %> 2023</p>
+      </footer>
+    </div>
+
   </body>
 </html>
+
+
+

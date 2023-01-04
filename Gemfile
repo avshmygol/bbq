@@ -11,11 +11,12 @@ gem "jsbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "cssbundling-rails"
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "devise"
 gem "devise-i18n"
-# gem "russian"
-# gem "rails-i18n"
+gem "russian"
+gem "rails-i18n"
 # gem "paper_trail"
 
 group :development, :test do
