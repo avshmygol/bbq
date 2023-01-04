@@ -15,7 +15,7 @@ ____
 
 ```
 bundle
-bundle exec rails assets:precompile (for Production)
+bundle exec rails assets:precompile
 ```
 
 ## Database
@@ -24,5 +24,5 @@ Copy the database.yml.example file to the database.yml file.
 Edit the database.yml file to configure for your database.
 
 ```
-RAILS_ENV=production bundle exec rails db:migrate
+RAILS_ENV=production bundle exec rails db:migrate (for Production)
 ```

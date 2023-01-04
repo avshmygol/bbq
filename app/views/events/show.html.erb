@@ -1,8 +1,8 @@
-<div class="event">
-  <div class="event-info row">
+<div class="container">
+  <div class="event-info row rounded">
     <div class="col-md-12">
-      <%= content_tag 'div', '', class: 'event-background',
-        style: "background-image: url(#{asset_path('event.jpg')})" %>
+
+      <%= content_tag 'div', '', class: 'event-background', style: "background-image: url(#{asset_path('event.jpg')})" %>
 
       <div class="event-info-inner row">
         <div class="col-md-6">
@@ -12,15 +12,15 @@
             <%# Формат при этом используется из гема russian %>
             <h3><%= l @event.datetime, format: :short %></h3>
 
-            <h3><small><%= link_to @event.address,
-              "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
+            <h3><small><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
             <p><%= @event.description %></p>
           </div>
 
           <% if current_user_can_edit?(@event) %>
             <div class="buffer-both">
-              <%= link_to 'Изменить', edit_event_path(@event),
-                class: 'btn btn-primary' %>
+              <%= link_to edit_event_path(@event), class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+                <i class="bi bi-pencil"></i> Изменить
+              <% end %>
             </div>
           <% end %>
         </div>
