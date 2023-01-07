@@ -1,0 +1,19 @@
+<div class="buffer-bottom">
+  <p><%= comment.body %></p>
+  <p>
+    <span>
+      <% if comment.user.present? %>
+        <%= render partial: 'users/user', object: comment.user %>
+      <% else %>
+        <em><strong><%= comment.user_name %></strong></em>
+      <% end %>
+    </span>
+    <em><%= l comment.created_at, format: :short %></em>
+    <% if current_user_can_edit?(comment) %>
+      <%= link_to event_comment_path(comment.event, comment), data: { turbo_confirm: t("confirm.comments.destroy"), turbo_method: :delete }, title: "Удалить комментарий", style: 'color: #E1B493;' do %>
+        <i class="bi bi-eraser-fill"></i>
+      <% end %>
+    <% end %>
+  </p>
+</div>
+

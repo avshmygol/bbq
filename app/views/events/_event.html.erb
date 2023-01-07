@@ -10,7 +10,7 @@
           <h3>
             <%# Для перевода времени в русский формат используем I18n %>
             <%# Формат при этом используется из гема russian %>
-            <small><%= l event.datetime, format: :short %></small>
+            <small><%= l event.datetime, format: :long %></small>
           </h3>
           <div class="buffer-both"><%= event.address %></div>
         </div>

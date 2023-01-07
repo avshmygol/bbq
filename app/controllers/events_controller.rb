@@ -1,6 +1,3 @@
-# (с) goodprogrammer.ru
-#
-# Контроллер, управляющий событиями
 class EventsController < ApplicationController
   # Встроенный в девайз фильтр - посылает незалогиненного пользователя
   before_action :authenticate_user!, except: [:show, :index]
@@ -16,6 +13,8 @@ class EventsController < ApplicationController
   end
 
   def show
+    @new_comment = @event.comments.build(params[:comment])
+    # @new_subscription = @event.subscriptions.build(params[:subscription])
   end
 
   def new
@@ -29,8 +28,6 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
 
     if @event.save
-      # Используем сообщение из файла локалей ru.yml
-      # controllers -> events -> created
       redirect_to @event, notice: I18n.t('controllers.events.created')
     else
       render :new

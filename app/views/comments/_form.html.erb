@@ -1,0 +1,21 @@
+<%= form_for [@event, comment], data: { turbo: false } do |f| %>
+    <%= render partial: 'partials/form_errors', locals: {model: comment} %>
+
+    <div class="mb-3">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+
+    <% unless user_signed_in? %>
+        <div class="mb-3">
+          <%= f.label :user_name %>
+          <%= f.text_field :user_name, class: 'form-control' %>
+        </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+        <i class='bi bi-check-lg'></i>&nbsp;&nbsp;Добавить
+      <% end %>
+    </div>
+<% end %>

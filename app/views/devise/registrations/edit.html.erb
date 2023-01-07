@@ -1,43 +1,63 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Редактирование профиля</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="row">
+  <div class="col-md-6 buffer-top">
 
-  <div class="mb-3">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
+      <div class="mb-3">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', autofocus: true, autocomplete: "name" %>
+      </div>
 
-  <div class="mb-3">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="mb-3">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control', autocomplete: "email" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= f.label :password %> (оставьте пустым, если не хотите менять)<br />
+        <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password" %>
+      </div>
+
+      <div class="mb-3">
+        <%# f.submit "Сохранить", class: "btn", style: "background-color: #8199A3; color: white;" %>
+        <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+          <i class="bi bi-check-lg"></i> Сохранить
+        <% end %>
+      </div>
     <% end %>
+
+    <h3 class="mb-3">Другие действия</h3>
+
+    <div class="mb-3">
+      <%= link_to registration_path(resource_name), data: { turbo_confirm: t("confirm.users.destroy"), turbo_method: :delete }, class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+        <i class="bi bi-eraser-fill"></i> Удалить учётную запись
+      <% end %>
+    </div>
+
+    <!-- <div class="mt-3 mb-3">
+      <%# link_to "Изменить пароль", edit_user_password_path(resource_name) %>
+    </div> -->
+
+    <div class="mt-3 mb-3">
+      <%= link_to "Вернуться назад", :back %>
+    </div>
+
   </div>
-
-  <div class="mb-3">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="mb-3">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

@@ -5,7 +5,7 @@
 
   <% if @user == current_user %>
     <div class="mt-3 mb-3">
-      <%= link_to edit_user_path(@user), class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+      <%= link_to edit_user_registration_path, class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
         <i class="bi bi-pencil"></i>&nbsp;&nbsp;Редактировать профиль
       <% end %>
     </div>

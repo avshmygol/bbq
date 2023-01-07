@@ -1,4 +1,4 @@
-<%= form_for(@event) do |f| %>
+<%= form_for(@event, data: { turbo: false }) do |f| %>
   <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
   <div class="mb-3">
@@ -23,7 +23,7 @@
 
   <div class="mb-3">
     <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
-      <i class='bi bi-check'></i> Сохранить
+      <i class='bi bi-check-lg'></i> Сохранить
     <% end %>
     или <%= link_to 'вернуться', :back %>
   </div>
