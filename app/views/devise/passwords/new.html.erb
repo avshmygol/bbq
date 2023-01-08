@@ -1,6 +1,6 @@
-<h2>Forgot your password?</h2>
+<h2>Забыли свой пароль?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { "data-turbo": "false", method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="mb-3">
@@ -9,7 +9,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Выслать инструкцию по сбросу пароля" %>
   </div>
 <% end %>
 

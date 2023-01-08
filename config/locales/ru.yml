@@ -68,6 +68,23 @@ ru:
     subscriptions:
       destroy: "Удалить подписку?"
 
+  # Работа с письмами
+  event_mailer:
+    comment:
+      title: 'Новый комментарий'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription:
+      title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+
   # Склонятор rails-i18n для ошибок
   bug:
     zero: "нет ошибок"
