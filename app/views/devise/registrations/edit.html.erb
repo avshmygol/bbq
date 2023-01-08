@@ -16,6 +16,12 @@
         <%= f.email_field :email, class: 'form-control', autocomplete: "email" %>
       </div>
 
+      <div class="mb-3">
+        <%= f.label :avatar %>
+        <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+        <%= f.file_field :avatar %>
+      </div>
+
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>

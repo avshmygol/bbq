@@ -23,23 +23,3 @@
   width: auto;
   border-radius: 50%;
 }
-
-/* Thumbnails for events/index */
-.thumbnail {
-  position: relative;
-  background: transparent;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.thumbnail h3 {
-  white-space: nowrap;
-  overflow: hidden;
-  margin-top: 0;
-  margin-bottom: .3em;
-}
-
-.thumbnail-inner {
-  padding: 20px 4px 4px;
-}

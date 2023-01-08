@@ -17,6 +17,12 @@
       </div>
 
       <div class="mb-3">
+        <%= f.label :avatar %>
+        <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+        <%= f.file_field :avatar %>
+      </div>
+
+      <div class="mb-3">
         <%= f.label "Пароль" %>
         <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
       </div>

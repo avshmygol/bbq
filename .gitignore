@@ -31,3 +31,4 @@
 
 # Added by the developer
 /config/database.yml
+/public/uploads

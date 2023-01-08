@@ -1,8 +1,10 @@
 /*
 (с) goodprogrammer.ru
-Наши дополнительные стили для красивого оформления плитки событий
- */
 
+Наши дополнительные стили для красивого оформления плитки событий
+*/
+
+/* Block for events/show */
 .event-info {
   position: relative;
   color: white;
@@ -42,10 +44,32 @@
 
 .event-info-inner {
   background:rgba(0, 0, 0, 0.4);
+  padding: 15px;
 }
 
 .event-map {
   margin: 20px 0;
   width: 100%;
   height: 400px;
+}
+
+/* Thumbnails for events/index */
+.thumbnail {
+  position: relative;
+  background: transparent;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.thumbnail h4 {
+/*  white-space: nowrap;*/
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: .3em;
+}
+
+.thumbnail-inner {
+  padding: 10px;
 }
