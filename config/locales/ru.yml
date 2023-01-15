@@ -22,6 +22,7 @@ ru:
         address: "Место проведения"
         datetime: "Дата и время"
         description: "Описание"
+        pincode: "Пинкод доступа"
       comment:
         body: "Текст комментария"
         user: "Пользователь"
@@ -42,6 +43,7 @@ ru:
       created: "Добавлено новое мероприятие"
       updated: "Мероприятие обновлено"
       destroyed: "Мероприятие удалено"
+      wrong_pincode: "Неверный пинкод!"
     users:
       updated: "Профиль обновлён"
     comments:
@@ -78,6 +80,14 @@ ru:
       owner: 'Организатор'
     subscription:
       title: 'Новая подписка'
+      name: 'Имя'
+      email: 'Email'
+      author: 'Автор'
+      event: 'Событие'
+      datetime: 'Состоится'
+      owner: 'Организатор'
+    subscription_destroy:
+      title: 'Отписка от мероприятия'
       name: 'Имя'
       email: 'Email'
       author: 'Автор'

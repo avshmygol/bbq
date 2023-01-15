@@ -2,6 +2,24 @@ class Subscription < ApplicationRecord
   belongs_to :event
   belongs_to :user, optional: true
 
+  def user_name
+    if user.present?
+      user.name
+    else
+      super
+    end
+  end
+
+  def user_email
+    if user.present?
+      user.email
+    else
+      super
+    end
+  end
+
+  private
+
   validates :user_name, presence: true, length: { maximum: 100 }, unless: -> { user.present? }
   validates :user_email, presence: true, length: { maximum: 100 }, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }, unless: -> { user.present? }
 

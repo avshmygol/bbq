@@ -11,7 +11,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      # Отправляем письмо автору события
+      # Отправляем письмо автору события о подписке
       EventMailer.subscription(@event, @new_subscription).deliver_now
 
       # Если сохранилась успешно, редирект на страницу самого события
@@ -26,6 +26,9 @@ class SubscriptionsController < ApplicationController
     message = {notice: I18n.t('controllers.subscriptions.destroyed')}
 
     if current_user_can_edit?(@subscription)
+      # Отправляем письмо автору события об отписке
+      EventMailer.subscription_destroy(@event, @subscription).deliver_now
+
       @subscription.destroy
     else
       message = {alert: I18n.t('controllers.subscriptions.error')}

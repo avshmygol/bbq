@@ -26,7 +26,7 @@ module ApplicationHelper
     if photos.any?
       photos.sample.photo.url
     else
-      asset_path('event.jpg')
+      asset_path('event.png')
     end
   end
 
@@ -37,7 +37,7 @@ module ApplicationHelper
     if photos.any?
       photos.sample.photo.thumb.url
     else
-      asset_path('event_thumb.jpg')
+      asset_path('event_thumb.png')
     end
   end
 end

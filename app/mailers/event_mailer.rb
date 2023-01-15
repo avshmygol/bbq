@@ -8,7 +8,16 @@ class EventMailer < ApplicationMailer
     @name = subscription.user_name
     @event = event
 
-    mail to: event.user.email, subject: "Новая подписка на #{event.title}"
+    mail to: event.user.email, subject: "Новая подписка на мероприятие '#{event.title}'"
+  end
+
+  # Письмо об отписке для автора события
+  def subscription_destroy(event, subscription)
+    @email = subscription.user_email
+    @name = subscription.user_name
+    @event = event
+
+    mail to: event.user.email, subject: "Отписка от мероприятия '#{event.title}'"
   end
 
   # Письмо о новом комментарии на заданный email

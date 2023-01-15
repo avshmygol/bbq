@@ -23,11 +23,11 @@
   background-size: cover;
   background-position: center;
 
-  filter: blur(5px);
+/*  filter: blur(5px);
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
-  -ms-filter: blur(5px);
+  -ms-filter: blur(5px);*/
 }
 
 .event-description * {
@@ -64,7 +64,6 @@
 }
 
 .thumbnail h4 {
-/*  white-space: nowrap;*/
   overflow: hidden;
   margin-top: 0;
   margin-bottom: .3em;
