@@ -9,7 +9,8 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # фотографии хранятся прямо в файловой системе, иначе используем fog
   # для загрузки их на Amazon S3
   if Rails.env.production?
-    storage :fog
+    # storage :fog
+    storage :file
   else
     storage :file
   end

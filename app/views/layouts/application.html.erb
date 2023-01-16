@@ -47,9 +47,22 @@
       <div class="row">
         <div class="col-md-12">
           <% if flash[:notice].present? %>
-            <div class="alert alert-success close" role="alert"><%= flash[:notice] %></div>
-          <% elsif flash[:alert].present? %>
-            <div class="alert alert-warning close" role="alert"><%= flash[:alert] %></div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <%= flash[:notice] %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% end %>
+          <% if flash[:alert].present? %>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <%= flash[:alert] %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% end %>
+          <% if flash[:error].present? %>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <%= flash[:error] %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
           <% end %>
         </div>
       </div>

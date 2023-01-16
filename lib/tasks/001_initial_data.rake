@@ -4,8 +4,8 @@ namespace :setup do
     # puts "*** Drop old database***"
     # Rake::Task["db:drop"].invoke
 
-    # puts "*** Do migrate ***"
-    # Rake::Task["db:migrate"].invoke
+    puts "*** Do migrate ***"
+    Rake::Task["db:migrate"].invoke
 
     puts "*** Add initial data ***"
     lines = File.readlines("#{__dir__}/001_initial_data.txt", encoding: "UTF-8", chomp: true)
