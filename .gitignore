@@ -32,3 +32,9 @@
 # Added by the developer
 /config/database.yml
 /public/uploads
+/lib/tasks/001_initial_data.rake
+/lib/tasks/001_initial_data.txt
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-*

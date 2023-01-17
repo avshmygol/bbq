@@ -1,5 +1,5 @@
   <div class="event-info rounded">
-  
+
     <%= content_tag 'div', '', class: 'event-background', style: "background-image: url(#{event_photo(@event)})" %>
 
     <div class="row event-info-inner">
@@ -72,13 +72,17 @@
           </p>
         </div>
       </div>
-      <div class="event-subscription-form">
-        <h4>Я тоже буду:</h4>
-        <div>
-          <%= render partial: 'subscriptions/form', locals: {
-            subscription: @new_subscription || @event.subscriptions.build
-          } %>
+
+      <% unless @event.user == current_user %>
+        <div class="event-subscription-form">
+          <h4>Я тоже буду:</h4>
+          <div>
+            <%= render partial: 'subscriptions/form', locals: {
+              subscription: @new_subscription || @event.subscriptions.build
+            } %>
+          </div>
         </div>
-      </div>
+      <% end %>
+
     </div>
 
