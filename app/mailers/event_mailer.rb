@@ -1,6 +1,3 @@
-# (с) goodprogrammer.ru
-#
-# Письма о событиях
 class EventMailer < ApplicationMailer
   # Письмо о новой подписке для автора события
   def subscription(event, subscription)

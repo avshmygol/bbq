@@ -18,8 +18,12 @@ gem "rails-i18n"
 
 # For Windows: Install ImageMagick to C:/ImageMagick
 # gem install rmagick --platform=ruby -- --with-opt-lib=c:/ImageMagick/lib --with-opt-include=c:/ImageMagick/include
-gem "carrierwave"
 gem "rmagick"
+gem "carrierwave"
+
+gem "mailjet"
+gem "dotenv-rails"
+
 # gem "paper_trail"
 
 group :development, :test do

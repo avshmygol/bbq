@@ -60,23 +60,25 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  # ----- РАБОТА С ПОЧТОЙ -----
+
+  # Отправка почты через SMTP
+  config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.perform_caching = false
 
-  # Базовый урл сайта, для генерации правильных ссылок в письмах
+  # Базовый адрес сайта, для генерации правильных ссылок в письмах (devise)
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-  # отправка почты по протоколу SMTP
-  config.action_mailer.delivery_method = :smtp
+  # Don't care if the mailer can't send.
+  # config.action_mailer.raise_delivery_errors = true
 
   # Настройки для работы через GMail аккаунт
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: '587',
-    user_name: '', # не используйте для тестов свои реальные ящики
-    password: '', # не храните здесь пароль!
+    user_name: ENV["GMAIL_USERNAME"], # не используйте для тестов свои реальные ящики
+    password: ENV["GMAIL_PASSWORD"], # не храните здесь пароль!
     authentication: 'plain',
     enable_starttls_auto: true
   }

@@ -1,4 +1,4 @@
-class Subscription < ApplicationRecord
+class Subscription < ActiveRecord::Base
   belongs_to :event
   belongs_to :user, optional: true
 
