@@ -63,7 +63,7 @@ Rails.application.configure do
   # ----- РАБОТА С ПОЧТОЙ -----
 
   # Отправка почты через SMTP
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :mailjet # :smtp
 
   config.action_mailer.perform_caching = false
 
@@ -74,12 +74,12 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = true
 
   # Настройки для работы через GMail аккаунт
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: '587',
-    user_name: ENV["GMAIL_USERNAME"], # не используйте для тестов свои реальные ящики
-    password: ENV["GMAIL_PASSWORD"], # не храните здесь пароль!
-    authentication: 'plain',
-    enable_starttls_auto: true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: '587',
+  #   user_name: ENV["GMAIL_USERNAME"], # не используйте для тестов свои реальные ящики
+  #   password: ENV["GMAIL_PASSWORD"], # не храните здесь пароль!
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
 end

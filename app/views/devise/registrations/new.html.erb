@@ -17,17 +17,16 @@
       </div>
 
       <div class="mb-3">
-        <%= f.label "Пароль" %>
+        <%= f.label :password %>
         <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
       </div>
 
       <div class="mb-3">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
       </div>
 
       <div class="mb-3">
-        <%# f.submit "Сохранить", class: "btn", style: "background-color: #8199A3; color: white;" %>
         <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
           <i class="bi bi-check-lg"></i> Сохранить
         <% end %>

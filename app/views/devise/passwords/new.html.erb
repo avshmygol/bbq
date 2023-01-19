@@ -1,16 +1,27 @@
 <h2>Забыли свой пароль?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { "data-turbo": "false", method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="row">
+  <div class="col-md-6 buffer-top">
 
-  <div class="mb-3">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { "data-turbo": "false", method: :post }) do |f| %>
+
+      <div class="mb-4">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+          <i class="bi bi-envelope"></i>&nbsp;&nbsp;Выслать инструкцию по сбросу пароля
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="mt-3 mb-3">
+      <%= render "devise/shared/links" %>
+    </div>
+
   </div>
-
-  <div class="actions">
-    <%= f.submit "Выслать инструкцию по сбросу пароля" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
