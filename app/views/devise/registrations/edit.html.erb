@@ -27,7 +27,7 @@
       <% end %>
 
       <div class="mb-3">
-        <%= f.label :password %> (оставьте пустым, если не хотите менять)
+        <%= f.label :password, "Пароль (оставьте пустым, если не хотите менять)" %>
         <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
       </div>
 
@@ -37,7 +37,7 @@
       </div>
 
       <div class="mb-3">
-        <%= f.label :current_password %> (указать при внесении изменений)
+        <%= f.label :current_password, "Текущий пароль (указать при внесении изменений)" %>
         <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password" %>
       </div>
 
@@ -51,7 +51,7 @@
     <h3 class="mb-3">Другие действия</h3>
 
     <div class="mb-3">
-      <%= link_to registration_path(resource_name), data: { turbo_confirm: t("confirm.users.destroy"), turbo_method: :delete }, class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+      <%= button_to user_path(@user), method: :delete, form: { data: { turbo_confirm: t("confirm.users.destroy") } }, class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
         <i class="bi bi-eraser-fill"></i> Удалить учётную запись
       <% end %>
     </div>

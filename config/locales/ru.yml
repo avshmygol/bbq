@@ -43,8 +43,6 @@ ru:
             email:
               blank: "не может быть пустой"
 
-
-
   # Перевод сообщений, которые отправляет контроллер
   controllers:
     events:
@@ -54,6 +52,7 @@ ru:
       wrong_pincode: "Неверный пинкод!"
     users:
       updated: "Профиль обновлён"
+      destroyed: "Учётная запись удалена"
     comments:
       destroyed: "Комментарий удалён"
       created: "Комментарий добавлен"
@@ -84,7 +83,7 @@ ru:
     comment:
       title: 'Новый комментарий'
       author: 'Автор'
-      event: 'Событие'
+      event: 'Мероприятие'
       datetime: 'Состоится'
       owner: 'Организатор'
     subscription:
@@ -92,7 +91,7 @@ ru:
       name: 'Имя'
       email: 'Email'
       author: 'Автор'
-      event: 'Событие'
+      event: 'Мероприятие'
       datetime: 'Состоится'
       owner: 'Организатор'
     subscription_destroy:
@@ -100,7 +99,7 @@ ru:
       name: 'Имя'
       email: 'Email'
       author: 'Автор'
-      event: 'Событие'
+      event: 'Мероприятие'
       datetime: 'Состоится'
       owner: 'Организатор'
 
