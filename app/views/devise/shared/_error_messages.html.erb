@@ -1,7 +1,7 @@
 <% if resource.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-warning"> 
-      В форме <%= I18n.t(:bug, count: resource.errors.count) %>:
+      <%= t("devise.text.errors.form") %> <%= I18n.t(:bug, count: resource.errors.count) %>:
       <ul>
         <% resource.errors.each do |error| %>
           <li class="ms-2"><%= error.full_message %></li>

@@ -1,4 +1,4 @@
-<h2>Регистрация пользователя</h2>
+<h2><%= t("devise.text.title.new_profile") %></h2>
 
 <div class="row">
   <div class="col-md-6 buffer-top">
@@ -18,17 +18,17 @@
 
       <div class="mb-3">
         <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
+        <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: t("devise.text.password.requirements") %>
       </div>
 
-      <div class="mb-3">
+      <div class="mb-4">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password", placeholder: t("devise.text.password.requirements") %>
       </div>
 
       <div class="mb-3">
         <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
-          <i class="bi bi-check-lg"></i> Сохранить
+          <i class="bi bi-check-lg"></i> <%= t("devise.text.button.save") %>
         <% end %>
       </div>
     <% end %>

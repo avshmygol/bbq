@@ -42,6 +42,16 @@ ru:
           attributes:
             email:
               blank: "не может быть пустой"
+        photo:
+          attributes:
+            photo:
+              blank: "не может быть пустой"
+            user:
+              empty: "должен быть зарегистрирован"
+        subscription:
+          attributes:
+            user_email:
+              blank: "не может быть пустой"
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -81,13 +91,13 @@ ru:
   # Работа с письмами
   event_mailer:
     comment:
-      title: 'Новый комментарий'
+      title: 'Комментарий'
       author: 'Автор'
       event: 'Мероприятие'
       datetime: 'Состоится'
       owner: 'Организатор'
     subscription:
-      title: 'Новая подписка'
+      title: 'Подписка на мероприятие'
       name: 'Имя'
       email: 'Email'
       author: 'Автор'
@@ -115,3 +125,8 @@ ru:
   app:
     name: "Let's meet"
     company: "Хороший программист"
+  form:
+    text:
+      button:
+        save: "Сохранить"
+

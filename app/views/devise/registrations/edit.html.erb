@@ -1,4 +1,4 @@
-<h2>Редактирование профиля</h2>
+<h2><%= t("devise.text.title.edit_profile") %></h2>
 
 <div class="row">
   <div class="col-md-6 buffer-top">
@@ -23,41 +23,41 @@
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Ожидает подтверждения: <%= resource.unconfirmed_email %></div>
+        <div><%= t("devise.text.unconfirmed.email") %> <%= resource.unconfirmed_email %></div>
       <% end %>
 
       <div class="mb-3">
-        <%= f.label :password, "Пароль (оставьте пустым, если не хотите менять)" %>
-        <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
+        <%= f.label :password, t("devise.text.password.optional") %>
+        <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: t("devise.text.password.requirements") %>
       </div>
 
       <div class="mb-3">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password", placeholder: "Минимум 6 символов" %>
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password", placeholder: t("devise.text.password.requirements") %>
       </div>
 
       <div class="mb-3">
-        <%= f.label :current_password, "Текущий пароль (указать при внесении изменений)" %>
+        <%= f.label :current_password,  t("devise.text.current_password.optional") %>
         <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password" %>
       </div>
 
       <div class="mb-3">
         <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
-          <i class="bi bi-check-lg"></i> Сохранить
+          <i class="bi bi-check-lg"></i> <%= t("devise.text.button.save") %>
         <% end %>
       </div>
     <% end %>
 
-    <h3 class="mb-3">Другие действия</h3>
+    <h3 class="mb-3"><%= t("devise.text.title.other_actions") %></h3>
 
     <div class="mb-3">
       <%= button_to user_path(@user), method: :delete, form: { data: { turbo_confirm: t("confirm.users.destroy") } }, class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
-        <i class="bi bi-eraser-fill"></i> Удалить учётную запись
+        <i class="bi bi-eraser-fill"></i> <%= t("devise.text.button.delete_profile") %>
       <% end %>
     </div>
 
     <div class="mt-3 mb-3">
-      <%= link_to "Вернуться назад", :back %>
+      <%= link_to t("devise.text.link.back"), :back %>
     </div>
 
   </div>

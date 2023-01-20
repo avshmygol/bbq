@@ -1,14 +1,16 @@
 <%# Форма для добавления новой фотографии с одним полем photo %>
 <%# Обратите внимание на параметр multipart %>
-<%= form_for [@event, photo], data: { turbo: false }, html: { multipart: true } do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: photo} %>
+<%= render partial: 'partials/form_errors', locals: {model: photo} %>
 
-  <div class="form-group">
+<%= form_for [@event, photo], data: { turbo: false }, html: { multipart: true } do |f| %>
+  <div class="mb-4">
     <%= f.label :photo %>
-    <%= f.file_field :photo %>
+    <%= f.file_field :photo, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit 'Загрузить', class: 'btn btn-primary' %>
+  <div class="mb-3">
+    <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+      <i class="bi bi-check-lg"></i> Загрузить
+    <% end %>
   </div>
 <% end %>

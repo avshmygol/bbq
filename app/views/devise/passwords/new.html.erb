@@ -1,4 +1,4 @@
-<h2>Забыли свой пароль?</h2>
+<h2><%= t("devise.text.title.forgot_password") %></h2>
 
 <div class="row">
   <div class="col-md-6 buffer-top">
@@ -14,7 +14,7 @@
 
       <div class="mb-3">
         <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
-          <i class="bi bi-envelope"></i>&nbsp;&nbsp;Выслать инструкцию по сбросу пароля
+          <i class="bi bi-envelope"></i>&nbsp;&nbsp;<%= t("devise.text.button.send_instruction") %>
         <% end %>
       </div>
     <% end %>

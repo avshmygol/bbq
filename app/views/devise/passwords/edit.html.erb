@@ -1,4 +1,4 @@
-<h2>Смена пароля</h2>
+<h2><%= t("devise.text.title.change_password") %></h2>
 
 <div class="row">
   <div class="col-md-6 buffer-top">
@@ -10,18 +10,18 @@
       <%= f.hidden_field :reset_password_token %>
 
       <div class="mb-3">
-        <%= f.label :password, "Новый пароль" %>
-        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control', placeholder: "Минимум #{@minimum_password_length} символов" %>
+        <%= f.label :password, t("devise.text.password.new") %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: 'form-control', placeholder: t("devise.text.password.requirements") %>
       </div>
 
       <div class="mb-4">
-        <%= f.label :password_confirmation, "Подтверждение нового пароля" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: "Минимум #{@minimum_password_length} символов" %>
+        <%= f.label :password_confirmation, t("devise.text.password.new_confirmation") %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: t("devise.text.password.requirements") %>
       </div>
 
       <div class="mb-3">
         <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
-          <i class="bi bi-check-lg"></i> Сменить пароль
+          <i class="bi bi-check-lg"></i> <%= t("devise.text.button.change_password") %>
         <% end %>
       </div>
 

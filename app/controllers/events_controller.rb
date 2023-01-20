@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   # protect_from_forgery except: :password_guard!
 
-  # before_action :password_guard!, only: [:show]
+  before_action :password_guard!, only: [:show]
 
   def index
     @events = Event.all
@@ -79,26 +79,23 @@ class EventsController < ApplicationController
   # http://api.rubyonrails.org/classes/ActionDispatch/Session/CookieStore.html
   #
 
-  # def password_guard!
-  #   return true if @event.pincode.blank?
-  #   return true if signed_in? && current_user == @event.user
+  def password_guard!
+    return true if @event.pincode.blank?
+    return true if signed_in? && current_user == @event.user
 
-  #   # Юзер на чужом событии (или не за логином). Проверяем, правильно ли передал
-  #   # пинкод. Если правильно, запоминаем в куках этого юзера этот пинкод для
-  #   # данного события.
-  #   if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
-  #     cookies["events_#{@event.id}_pincode"] = params[:pincode]
-  #     # cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
-  #   end
+    # Юзер на чужом событии (или не за логином). Проверяем, правильно ли передан пинкод.
+    # Если правильно, запоминаем в куках этого юзера этот пинкод для данного события.
+    if params[:pincode].present? && @event.pincode_valid?(params[:pincode])
+      cookies.permanent["events_#{@event.id}_pincode"] = params[:pincode]
+    end
 
-  #   # Проверяем — верный ли в куках пинкод, если нет — ругаемся и рендерим форму
-  #   pincode = cookies["events_#{@event.id}_pincode"]
-  #   # pincode = cookies.permanent["events_#{@event.id}_pincode"]
-  #   unless @event.pincode_valid?(pincode)
-  #     if params[:pincode].present?
-  #       flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
-  #     end
-  #     render 'password_form'
-  #   end
-  # end
+    # Проверяем — верный ли в куках пинкод, если нет — ругаемся и рендерим форму
+    pincode = cookies.permanent["events_#{@event.id}_pincode"]
+    unless @event.pincode_valid?(pincode)
+      if params[:pincode].present?
+        flash.now[:alert] = I18n.t('controllers.events.wrong_pincode')
+      end
+      render 'password_form'
+    end
+  end
 end
