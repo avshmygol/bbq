@@ -10,24 +10,15 @@ class SubscriptionsController < ApplicationController
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    # Запрещаем анонимным пользователям использовать чужую почту
-    if @new_subscription.user.nil? && User.find_by(email: @new_subscription.user_email)
-      # Запишем основные ошибки валидации (имя, почта)
-      @new_subscription.valid?
-      # Добавим ошибку использования чужой почты
-      @new_subscription.errors.add(:base, I18n.t('controllers.subscriptions.error_email'))
-      render 'events/show'
-    else
-      if @event.user != current_user && @new_subscription.save
-        # Отправляем письмо автору события о подписке
-        EventMailer.subscription(@event, @new_subscription).deliver_now
+    if @new_subscription.save
+      # Отправляем письмо автору события о подписке
+      EventMailer.subscription(@event, @new_subscription).deliver_now
 
-        # Перерисовываем окно мероприятия
-        redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
-      else
-        # Перерисовываем форму ввода с указанием ошибок валидации
-        render 'events/show'
-      end
+      # Перерисовываем окно мероприятия
+      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
+    else
+      # Перерисовываем форму ввода с указанием ошибок валидации
+      render 'events/show'
     end
   end
 
