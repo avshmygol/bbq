@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 100 }
   validates :email, length: { maximum: 100 }
 
