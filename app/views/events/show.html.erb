@@ -64,6 +64,7 @@
         <h4>Мероприятие организует:</h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
+      <% if @event.subscriptions.except(@new_subscription).empty? %>
       <div class="event-subscriptions">
         <h4>В мероприятии участвуют:</h4>
         <div>
@@ -72,6 +73,7 @@
           </p>
         </div>
       </div>
+      <% end %>
 
       <% unless @event.user == current_user %>
         <div class="event-subscription-form">

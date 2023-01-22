@@ -1,8 +1,3 @@
-/*
-  (с) goodprogrammer.ru
-  Наши дополнительные стили для оформления отступов и тамбинашек картинок
-*/
-
 /* Buffers */
 .buffer-top {
   margin-top: 20px;
@@ -22,4 +17,10 @@
   height: 50px;
   width: auto;
   border-radius: 50%;
+}
+
+/* Buttons */
+.button_form {
+  background-color: #8199A3;
+  color: white;
 }

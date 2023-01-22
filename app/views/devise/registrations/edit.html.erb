@@ -42,7 +42,7 @@
       </div>
 
       <div class="mb-3">
-        <%= f.button class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+        <%= f.button class: 'btn button_form' do %>
           <i class="bi bi-check-lg"></i> <%= t("devise.text.button.save") %>
         <% end %>
       </div>
@@ -51,7 +51,7 @@
     <h3 class="mb-3"><%= t("devise.text.title.other_actions") %></h3>
 
     <div class="mb-3">
-      <%= button_to user_path(@user), method: :delete, form: { data: { turbo_confirm: t("confirm.users.destroy") } }, class: 'btn', style: 'background-color: #8199A3; color: white;' do %>
+      <%= button_to user_path(@user), method: :delete, form: { data: { turbo_confirm: t("confirm.users.destroy") } }, class: 'btn button_form' do %>
         <i class="bi bi-eraser-fill"></i> <%= t("devise.text.button.delete_profile") %>
       <% end %>
     </div>
