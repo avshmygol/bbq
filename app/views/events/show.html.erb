@@ -64,7 +64,8 @@
         <h4>Мероприятие организует:</h4>
         <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
-      <% if @event.subscriptions.except(@new_subscription).empty? %>
+      <%# debugger %>
+      <% unless @event.subscriptions.except(@new_subscription).empty? %>
       <div class="event-subscriptions">
         <h4>В мероприятии участвуют:</h4>
         <div>

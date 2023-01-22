@@ -5,7 +5,8 @@ class Subscription < ApplicationRecord
   validates :user_name, presence: true, length: { maximum: 100 }, unless: -> { user.present? }
   validates :user_email, presence: true, length: { maximum: 100 }, format: Devise.email_regexp, unless: -> { user.present? }
 
-  validate :filter_subscription
+  validate :check_subscription_of_author, if: -> { user.present? }
+  validate :check_forgery_email, unless: -> { user.present? }
 
   # для данного event_id один юзер может подписаться только один раз (если юзер задан)
   validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
@@ -31,11 +32,11 @@ class Subscription < ApplicationRecord
 
   private
 
-  def filter_subscription
-    if user.present?
-      errors.add(:base, :error_author) if user == event.user
-    else
-      errors.add(:base, :error_email) unless User.find_by(email: user_email).nil?
-    end
+  def check_subscription_of_author
+    errors.add(:user, :error_subscription_of_author) if user == event.user
+  end
+
+  def check_forgery_email
+    errors.add(:user_email, :error_forgery_email) unless User.find_by(email: user_email).nil?
   end
 end

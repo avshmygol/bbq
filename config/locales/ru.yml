@@ -51,10 +51,11 @@ ru:
         subscription:
           attributes:
             base:
-              error_author: "Организатору мероприятия не нужно подписываться"
-              error_email: "Использована электронная почта зарегистрированного пользователя"
+            user:
+              error_subscription_of_author: "является организатором мероприятия"
             user_email:
               blank: "не может быть пустой"
+              error_forgery_email: "зарегистрированного пользователя"
 
   # Универсальные тексты ошибок
   errors:
